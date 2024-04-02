@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { GithubAuthProvider, GoogleAuthProvider, getAuth, signInWithPopup, signOut } from "firebase/auth";
 import app from '../../firebase/Firebase.init';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const [user, setUser] = useState(null);
@@ -49,6 +50,10 @@ const Login = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>LogIn page</title>
+            </Helmet>
+            
            {
             user ? 
             <button onClick={handleSignOut} className='btn btn-primary'>Sign Out</button> : <>
