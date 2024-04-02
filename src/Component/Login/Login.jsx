@@ -53,21 +53,22 @@ const Login = () => {
             <Helmet>
                 <title>LogIn page</title>
             </Helmet>
-            
+
            {
             user ? 
-            <button onClick={handleSignOut} className='btn btn-primary'>Sign Out</button> : <>
+            <div className='text-center pt-20'> <button onClick={handleSignOut} className='btn btn-primary'>Sign Out</button></div> 
+            : <div className='text-center pt-20 space-x-10'>
                 <button onClick={handlegoogleSignIn} className='btn my-5'>Google Login</button> 
                 <button onClick={handleGitSignIn} className='btn btn-secondary my-5'>GitHub Login</button> 
                 
-            </>
+            </div>
            }
             {
-                user && <div className='text-2xl font-bold'>
-                    <h3>User :{user.displayName}</h3>
+                user && <div className='text-xl font-semibold text-gray-600 space-y-4 py-10 text-center'>
+                    <h3  className='text-2xl font-bold text-black'>User :{user.displayName}</h3>
                     <p>Email : {user.email}</p>
                     <p>ProviderId : {user.providerId}</p>
-                    <img src={user.photoURL} alt="" />
+                    <div className='flex justify-center'><img src={user.photoURL} alt="" /></div>
                 </div>
             }
         </div>
